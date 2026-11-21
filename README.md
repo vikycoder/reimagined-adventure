@@ -15,6 +15,7 @@ Study material for GATE 2027 EC (organising institute: IIT Madras).
 04_Concept_Notes/            Conceptual notes with worked examples, one folder per subject
     01_Network_Theory/
         Day01_Circuit_Analysis_Fundamentals.md   (start here)
+        Day01_Conceptual_Questions.md            (20 GATE-style conceptual questions)
         figures/             Circuit diagrams used in the notes
         tools/               verify_day1.py re-checks every number in the note
 ```
@@ -35,6 +36,7 @@ Study material for GATE 2027 EC (organising institute: IIT Madras).
 | `02_Previous_Year_Papers/2026` | Question paper + answer key | IIT Guwahati |
 | `03_Study_Plans` | `20_Day_Plan_Networks_Signals_Control.md` | 20-day plan with notes page numbers and daily checklists |
 | `04_Concept_Notes/01_Network_Theory` | `Day01_Circuit_Analysis_Fundamentals.md` | KCL/KVL, nodal, mesh, supernode/supermesh, dependent sources, source transformation, star–delta. 8 worked examples, 8 solved past-year questions, 5 practice problems |
+| `04_Concept_Notes/01_Network_Theory` | `Day01_Conceptual_Questions.md` | 20 conceptual questions (8 MSQ, 8 NAT, 4 MCQ) with answer key and full solutions |
 
 ## How to use the answer keys
 

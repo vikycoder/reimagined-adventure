@@ -2,7 +2,8 @@
 
 **Covers:** KCL/KVL · node and mesh analysis · supernode / supermesh · dependent sources · source transformation · star–delta (wye–delta)
 **Matches:** Day 1 of `03_Study_Plans/20_Day_Plan_Networks_Signals_Control.md` (Gate-O-Pedia pp. 2.1 – 2.19)
-**Time:** about 4½ hours in total (concepts, methods, past-year questions, practice)
+**Time:** about 5 hours in total (concepts, methods, past-year questions, practice, conceptual questions)
+**Companion:** `Day01_Conceptual_Questions.md`, 20 GATE-style conceptual questions with solutions
 
 Every number in this note (all worked examples, all 8 past-year questions, all practice answers) is re-checked by
 `tools/verify_day1.py`, and the past-year answers also match the official answer keys in `02_Previous_Year_Papers/`.
@@ -15,7 +16,8 @@ Every number in this note (all worked examples, all 8 past-year questions, all p
 | 2 | Read §7–§11 (the methods). For each worked example, **cover the solution, solve it, then compare** | 90 min |
 | 3 | Do §12: the 8 past-year questions. Try each first, then read the trick | 45 min |
 | 4 | Do §13 practice problems, then §14 mistakes checklist | 45 min |
-| 5 | Copy §15 onto your one-page Networks formula sheet | 10 min |
+| 5 | Take the **20 conceptual questions** in `Day01_Conceptual_Questions.md` (timed, then review the ones you missed) | 40 min |
+| 6 | Copy §15 onto your one-page Networks formula sheet | 10 min |
 
 ---
 
@@ -543,6 +545,7 @@ You are ready if you can, **without looking**:
 - [ ] say when source transformation is **not** allowed
 - [ ] write Δ→Y and Y→Δ from memory (or rebuild them from the terminal-pair argument)
 - [ ] solve 2022 Q13, 2022 Q14 and 2025 Q19 in under 2 minutes each
+- [ ] score at least 17/20 on `Day01_Conceptual_Questions.md`
 
 **Day 2 preview:** superposition, Thevenin, Norton and maximum power transfer. They build directly on source transformation (§10) and on nodal analysis with dependent sources (§7), so make sure those are solid.
 

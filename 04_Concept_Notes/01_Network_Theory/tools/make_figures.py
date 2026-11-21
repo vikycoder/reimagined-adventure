@@ -2,6 +2,8 @@
 import schemdraw
 import schemdraw.elements as e
 schemdraw.use('matplotlib')
+import matplotlib
+matplotlib.rcParams['figure.max_open_warning'] = 0
 import os
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'figures') + os.sep
 
@@ -218,4 +220,114 @@ d.add(e.Line().right())
 d.add(e.SourceControlledI().down().label('0.5 V', loc='bottom'))
 d.add(e.Line().left().tox(vs.start))
 save(d, 'p5_selfctrl')
+
+# ================= conceptual-question figures (Day01_Conceptual_Questions.md) =================
+import matplotlib.pyplot as plt
+
+# Q2: two networks joined by three wires (generalised KCL / cut-set)
+fig, ax = plt.subplots(figsize=(6, 2.8))
+ax.set_xlim(0, 10); ax.set_ylim(0, 4.6); ax.axis('off')
+for x0, lab in ((0.2, 'N\u2081'), (7.2, 'N\u2082')):
+    ax.add_patch(plt.Rectangle((x0, 0.4), 2.6, 3.8, fill=False, lw=2, ec='black'))
+    ax.text(x0 + 1.3, 2.3, lab, ha='center', va='center', fontsize=18)
+for y, lab in ((3.5, '3 A'), (2.3, '\u22125 A'), (1.1, 'I')):
+    ax.annotate('', xy=(7.2, y), xytext=(2.8, y), arrowprops=dict(arrowstyle='-|>', lw=2, color='black'))
+    ax.text(5.0, y + 0.2, lab, ha='center', fontsize=13)
+fig.savefig(OUT + 'q02_cutset.png', dpi=110, bbox_inches='tight', facecolor='white')
+plt.close(fig)
+
+# Q4: single loop, two sources and a resistor
+d = new()
+v1 = d.add(e.SourceV().up().label('12 V'))
+d.add(e.Resistor().right().label('2 \u03a9'))
+d.add(e.SourceV().down().reverse().label('4 V', loc='bottom'))
+d.add(e.Line().left().tox(v1.start))
+save(d, 'q04_power_loop')
+
+# Q6: resistor cube, A and B are opposite corners of a body diagonal
+fig, ax = plt.subplots(figsize=(4.6, 4.4))
+ax.axis('off'); ax.set_aspect('equal')
+fv = [(0, 0), (3, 0), (3, 3), (0, 3)]
+bv = [(1.3, 1.3), (4.3, 1.3), (4.3, 4.3), (1.3, 4.3)]
+def edge(p, q, ls='-'):
+    ax.plot([p[0], q[0]], [p[1], q[1]], ls, color='black', lw=2.2, zorder=1)
+for i in range(4):
+    edge(fv[i], fv[(i + 1) % 4])
+    edge(bv[i], bv[(i + 1) % 4], '--' if i in (0, 3) else '-')
+    edge(fv[i], bv[i], '--' if i == 0 else '-')
+for p in fv + bv:
+    ax.plot(*p, 'o', color='black', ms=6, zorder=2)
+for p, t, off in ((fv[0], 'A', (-0.45, -0.45)), (bv[2], 'B', (0.3, 0.3))):
+    ax.plot(*p, 'o', color='#d62728', ms=11, zorder=3)
+    ax.text(p[0] + off[0], p[1] + off[1], t, fontsize=16, color='#d62728', ha='center', va='center')
+ax.text(2.15, -0.9, 'each edge = 12 \u03a9', ha='center', fontsize=12)
+ax.set_xlim(-1, 5.2); ax.set_ylim(-1.4, 5.2)
+fig.savefig(OUT + 'q06_cube.png', dpi=110, bbox_inches='tight', facecolor='white')
+plt.close(fig)
+
+# Q10: mixed mesh orientations
+d = new()
+v1 = d.add(e.SourceV().up().label('10 V'))
+d.add(e.Resistor().right().label('2 \u03a9'))
+d.push(); d.add(e.Resistor().down().label('4 \u03a9', loc='top')); d.pop()
+d.add(e.Resistor().right().label('3 \u03a9'))
+d.add(e.SourceV().down().reverse().label('6 V', loc='bottom'))
+d.add(e.Line().left().tox(v1.start))
+loop(d, 1.45, 1.5, 'I\u2081', cw=True); loop(d, 4.55, 1.5, 'I\u2082', cw=False)
+save(d, 'q10_mesh_orient')
+
+# Q11: supermesh, current-source arrow pointing DOWN
+d = new()
+v1 = d.add(e.SourceV().up().label('20 V'))
+d.add(e.Resistor().right().label('2 \u03a9'))
+d.push(); d.add(e.SourceI().down().label('2 A', loc='bottom')); d.pop()
+d.add(e.Resistor().right().label('4 \u03a9'))
+d.add(e.Resistor().down().label('2 \u03a9', loc='bottom'))
+d.add(e.Line().left().tox(v1.start))
+loop(d, 1.4, 1.5, 'I\u2081'); loop(d, 4.95, 1.5, 'I\u2082')
+save(d, 'q11_supermesh_reversed')
+
+# Q13: resistor in series with an ideal current source
+d = new()
+vs = d.add(e.SourceV().up().label('10 V'))
+d.add(e.Resistor().right().label('2 k\u03a9'))
+d.add(e.Dot().label('X', loc='top'))
+d.push(); d.add(e.Resistor().down().label('3 k\u03a9', loc='bottom')); d.add(e.Dot()); d.pop()
+d.add(e.Line().right(3))
+d.add(e.SourceI().down(1.6).label('2 mA', loc='bottom'))
+d.add(e.Resistor().down(1.4).label('R', loc='bottom'))
+d.add(e.Line().left().tox(vs.start))
+d.add(e.Ground().at((3, 0)))
+save(d, 'q13_series_r')
+
+# Q15: CCVS with negative gain in a single loop
+d = new()
+v1 = d.add(e.SourceV().up().label('12 V'))
+r = d.add(e.Resistor().right().label('5 \u03a9'))
+d.add(e.CurrentLabelInline(direction='in').at(r).label('i'))
+d.add(e.SourceControlledV().down().reverse().label('\u22123 i', loc='bottom'))
+d.add(e.Line().left().tox(v1.start))
+save(d, 'q15_ccvs_neg')
+
+# Q17: source with series resistor feeding a load
+d = new()
+v1 = d.add(e.SourceV().up().label('12 V'))
+d.add(e.Resistor().right().label('3 \u03a9'))
+d.add(e.Resistor().down().label('6 \u03a9 (load)', loc='bottom'))
+d.add(e.Line().left().tox(v1.start))
+save(d, 'q17_trap')
+
+# Q20: bridge with a detector (middle arm)
+d = new()
+a, c, dd, b = (3, 6), (0, 3), (6, 3), (3, 0)
+d.add(e.Dot().at(a).label('a', loc='top'))
+d.add(e.Dot().at(b).label('b', loc='bottom'))
+d.add(e.Dot().at(c)); d.add(e.Dot().at(dd))
+d.add(e.Resistor().endpoints(a, c).label('6 \u03a9', loc='top'))
+d.add(e.Resistor().endpoints(a, dd).label('3 \u03a9', loc='bottom'))
+d.add(e.Resistor().endpoints(c, dd).label('100 \u03a9', loc='top'))
+d.add(e.Resistor().endpoints(c, b).label('12 \u03a9', loc='bottom'))
+d.add(e.Resistor().endpoints(dd, b).label('6 \u03a9', loc='top'))
+save(d, 'q20_bridge')
+
 print('done')
