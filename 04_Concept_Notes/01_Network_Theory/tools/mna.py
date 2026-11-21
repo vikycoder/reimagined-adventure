@@ -1,7 +1,8 @@
-"""Tiny Modified Nodal Analysis solver used to verify every number in the Day 1 notes.
+"""Tiny Modified Nodal Analysis solver used to verify the numbers in the Networks notes (DC and AC phasors).
 
 Node 0 is ground. Elements:
   ('R', a, b, ohms)
+  ('Z', a, b, z)                    complex impedance (phasor / AC analysis); source values may be complex too
   ('V', p, n, volts, name)          V(p) - V(n) = volts ; current var name flows p->n inside source
   ('I', a, b, amps)                 amps flow from node a, through the source, into node b
   ('VCCS', a, b, cp, cn, g)         g*(V(cp)-V(cn)) flows from a, through source, into b
@@ -21,7 +22,9 @@ def solve(elements):
     vsrc = [e[-1] for e in elements if e[0] in ('V', 'VCVS', 'CCVS')]
     N = len(nodes) + len(vsrc)
     vidx = {name: len(nodes) + i for i, name in enumerate(vsrc)}
-    A = np.zeros((N, N)); z = np.zeros(N)
+    cplx = any(e[0] == 'Z' or any(isinstance(x, complex) for x in e[3:]) for e in elements)
+    dt = complex if cplx else float
+    A = np.zeros((N, N), dtype=dt); z = np.zeros(N, dtype=dt)
 
     def add(r, c, v):
         if r is not None and c is not None:
@@ -30,7 +33,7 @@ def solve(elements):
     ni = lambda n: idx.get(n)  # None for ground
     for e in elements:
         t = e[0]
-        if t == 'R':
+        if t in ('R', 'Z'):
             _, a, b, R = e; g = 1 / R
             add(ni(a), ni(a), g); add(ni(b), ni(b), g); add(ni(a), ni(b), -g); add(ni(b), ni(a), -g)
         elif t == 'I':
@@ -70,4 +73,8 @@ if __name__ == '__main__':
     # VCCS sanity: 1 A into node 1 with 1 ohm, VCCS 0.5*V1 drawn from node1 to ground
     V, _ = solve([('I', 0, 1, 1), ('R', 1, 0, 1), ('VCCS', 1, 0, 1, 0, 0.5)])
     assert abs(V[1] - 1 / 1.5) < 1e-9, V
+    # AC sanity: 1 V (phasor) -> R=1k -> node 2 -> C=1uF to ground at w=1000 rad/s  =>  V2 = 1/(1 + jwRC) = 1/(1+1j)
+    w, R, C = 1000.0, 1e3, 1e-6
+    V, _ = solve([('V', 1, 0, 1 + 0j, 'vs'), ('R', 1, 2, R), ('Z', 2, 0, 1 / (1j * w * C))])
+    assert abs(V[2] - 1 / (1 + 1j)) < 1e-12, V
     print('solver ok')
