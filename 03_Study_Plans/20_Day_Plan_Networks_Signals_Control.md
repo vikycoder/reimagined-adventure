@@ -24,7 +24,7 @@ With only 3–4 hours a day, keep blocks 3 and 4 and shorten block 2. Problems m
 
 | Day | Topics | Notes pages | Done |
 |---|---|---|---|
-| 1 | KCL/KVL, node and mesh analysis, supernode/supermesh, dependent sources, source transformation, star–delta (wye–delta) | 2.1 – 2.19 | ☐ |
+| 1 | KCL/KVL, node and mesh analysis, supernode/supermesh, dependent sources, source transformation, star–delta (wye–delta) | 2.1 – 2.19. **Concept note:** `04_Concept_Notes/01_Network_Theory/Day01_Circuit_Analysis_Fundamentals.md` | ☐ |
 | 2 | Superposition, Thevenin, Norton, maximum power transfer (DC), reciprocity | 2.30 – 2.34 | ☐ |
 | 3 | Transients: RL, RC, RLC circuits, initial and final conditions, time constant, solving circuits with Laplace transform | 2.35 – 2.43 | ☐ |
 | 4 | Sinusoidal steady state: phasors, impedance, complex power, power factor, AC maximum power transfer, series and parallel resonance, Q-factor | 2.44 – 2.57 | ☐ |
