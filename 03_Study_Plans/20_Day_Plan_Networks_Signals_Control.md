@@ -5,7 +5,8 @@ The order matters: Networks introduces Laplace-domain circuits, Signals teaches 
 and Control is built on both.
 
 **Notes** = `01_Notes/GateOPedia_EC_ShortNotes_PW_2022.pdf` (page numbers as printed in the notes).
-**PYQs** = previous-year questions from `02_Previous_Year_Papers/` (2021–2026) plus an older topic-wise PYQ book if you have one.
+**Concept notes** (Days 1–9) = the notes in `04_Concept_Notes/`, linked in the Notes column below: each has worked examples, the solved past-year questions of that topic, a formula sheet and a 20-question conceptual set. Days 10–20 have no concept notes yet, so use the Gate-O-Pedia pages for them.
+**PYQs** = previous-year questions from `02_Previous_Year_Papers/` (2019–2026) plus an older topic-wise PYQ book if you have one.
 
 ## Daily routine (about 6 hours)
 
@@ -24,12 +25,12 @@ With only 3–4 hours a day, keep blocks 3 and 4 and shorten block 2. Problems m
 
 | Day | Topics | Notes pages | Done |
 |---|---|---|---|
-| 1 | KCL/KVL, node and mesh analysis, supernode/supermesh, dependent sources, source transformation, star–delta (wye–delta) | 2.1 – 2.19. **Concept note:** `04_Concept_Notes/01_Network_Theory/Day01_Circuit_Analysis_Fundamentals.md` and `Day01_Conceptual_Questions.md` | ☐ |
-| 2 | Superposition, Thevenin, Norton, maximum power transfer (DC), reciprocity | 2.30 – 2.34 | ☐ |
-| 3 | Transients: RL, RC, RLC circuits, initial and final conditions, time constant, solving circuits with Laplace transform | 2.35 – 2.43 | ☐ |
-| 4 | Sinusoidal steady state: phasors, impedance, complex power, power factor, AC maximum power transfer, series and parallel resonance, Q-factor | 2.44 – 2.57 | ☐ |
-| 5 | Two-port networks (Z, Y, h, ABCD parameters, conversions, series/parallel/cascade connections), coupled inductors | 2.20 – 2.29, 2.58 – 2.61 | ☐ |
-| 6 | **Revision + test:** every Networks PYQ from 2021–2026 not yet solved, then a timed 25–30 question set. Finish the Networks formula sheet | — | ☐ |
+| 1 | KCL/KVL, node and mesh analysis, supernode/supermesh, dependent sources, source transformation, star–delta (wye–delta) | 2.1 – 2.19. **Concept note:** [`Day01_Circuit_Analysis_Fundamentals.md`](../04_Concept_Notes/01_Network_Theory/Day01_Circuit_Analysis_Fundamentals.md) and [`Day01_Conceptual_Questions.md`](../04_Concept_Notes/01_Network_Theory/Day01_Conceptual_Questions.md) | ☐ |
+| 2 | Superposition, Thevenin, Norton, maximum power transfer (DC), reciprocity | 2.30 – 2.34. **Concept note:** [`Day02_Network_Theorems.md`](../04_Concept_Notes/01_Network_Theory/Day02_Network_Theorems.md) and [`Day02_Conceptual_Questions.md`](../04_Concept_Notes/01_Network_Theory/Day02_Conceptual_Questions.md) | ☐ |
+| 3 | Transients: RL, RC, RLC circuits, initial and final conditions, time constant, solving circuits with Laplace transform | 2.35 – 2.43. **Concept note:** [`Day03_Transient_Analysis.md`](../04_Concept_Notes/01_Network_Theory/Day03_Transient_Analysis.md) and [`Day03_Conceptual_Questions.md`](../04_Concept_Notes/01_Network_Theory/Day03_Conceptual_Questions.md) | ☐ |
+| 4 | Sinusoidal steady state: phasors, impedance, complex power, power factor, AC maximum power transfer, series and parallel resonance, Q-factor | 2.44 – 2.57. **Concept note:** [`Day04_Sinusoidal_Steady_State_and_Resonance.md`](../04_Concept_Notes/01_Network_Theory/Day04_Sinusoidal_Steady_State_and_Resonance.md) and [`Day04_Conceptual_Questions.md`](../04_Concept_Notes/01_Network_Theory/Day04_Conceptual_Questions.md) | ☐ |
+| 5 | Two-port networks (Z, Y, h, ABCD parameters, conversions, series/parallel/cascade connections), coupled inductors | 2.20 – 2.29, 2.58 – 2.61. **Concept note:** [`Day05_Two_Port_Networks.md`](../04_Concept_Notes/01_Network_Theory/Day05_Two_Port_Networks.md) and [`Day05_Conceptual_Questions.md`](../04_Concept_Notes/01_Network_Theory/Day05_Conceptual_Questions.md). Coupled inductors and the ideal transformer are not in the GATE 2027 syllabus; the note keeps them in a short optional section | ☐ |
+| 6 | **Revision + test:** every Networks PYQ from 2019–2026 not yet solved, then a timed 25–30 question set. Finish the Networks formula sheet | — **Concept notes:** [`Day06_Networks_Revision.md`](../04_Concept_Notes/01_Network_Theory/Day06_Networks_Revision.md) (PYQ map, master formula sheet), [`Day06_Conceptual_Questions.md`](../04_Concept_Notes/01_Network_Theory/Day06_Conceptual_Questions.md) (20 mixed questions) and [`Day06_Mock_Test.md`](../04_Concept_Notes/01_Network_Theory/Day06_Mock_Test.md) (timed, 25 questions) | ☐ |
 
 **High-frequency PYQ areas:** Thevenin with dependent sources, RLC transients, two-port parameters, resonance.
 
@@ -39,9 +40,9 @@ With only 3–4 hours a day, keep blocks 3 and 4 and shorten block 2. Problems m
 
 | Day | Topics | Notes pages | Done |
 |---|---|---|---|
-| 7 | Signal types and operations (shifting, scaling, even/odd, energy/power), system properties: linearity, time invariance, causality, stability, memory | 3.1 – 3.22 | ☐ |
-| 8 | Convolution (continuous and discrete), impulse response, LTI system properties from h(t) / h[n] | 3.1 – 3.22 | ☐ |
-| 9 | Continuous-time Fourier series: coefficients, symmetry, Parseval's theorem | 3.23 – 3.33 | ☐ |
+| 7 | Signal types and operations (shifting, scaling, even/odd, energy/power), system properties: linearity, time invariance, causality, stability, memory | 3.1 – 3.22. **Concept note:** [`Day07_Signals_and_System_Properties.md`](../04_Concept_Notes/02_Signals_and_Systems/Day07_Signals_and_System_Properties.md) and [`Day07_Conceptual_Questions.md`](../04_Concept_Notes/02_Signals_and_Systems/Day07_Conceptual_Questions.md) | ☐ |
+| 8 | Convolution (continuous and discrete), impulse response, LTI system properties from h(t) / h[n] | 3.1 – 3.22. **Concept note:** [`Day08_Convolution_and_LTI_Systems.md`](../04_Concept_Notes/02_Signals_and_Systems/Day08_Convolution_and_LTI_Systems.md) and [`Day08_Conceptual_Questions.md`](../04_Concept_Notes/02_Signals_and_Systems/Day08_Conceptual_Questions.md) | ☐ |
+| 9 | Continuous-time Fourier series: coefficients, symmetry, Parseval's theorem | 3.23 – 3.33. **Concept note:** [`Day09_Fourier_Series.md`](../04_Concept_Notes/02_Signals_and_Systems/Day09_Fourier_Series.md) and [`Day09_Conceptual_Questions.md`](../04_Concept_Notes/02_Signals_and_Systems/Day09_Conceptual_Questions.md) | ☐ |
 | 10 | Fourier transform and its properties, sampling theorem, aliasing, reconstruction | 3.34 – 3.41, 3.65 – 3.68 | ☐ |
 | 11 | Laplace transform: ROC, poles and zeros, causality and stability from ROC, frequency response. **Group delay and phase delay** (not in the notes, so use a lecture or textbook) | 3.42 – 3.50 | ☐ |
 | 12 | Z-transform: ROC, inverse z-transform, discrete-time system analysis. DTFT | 3.51 – 3.64 | ☐ |
