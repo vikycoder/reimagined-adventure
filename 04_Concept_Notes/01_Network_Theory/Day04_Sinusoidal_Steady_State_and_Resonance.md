@@ -105,7 +105,7 @@ p(t) = v·i = V·I·[ cos φ + cos(2ωt − φ) ]       average = V·I·cos φ, 
 | reactive power `Q` | `V I sin φ = I²X` | var | energy swapped with the field each cycle |
 | apparent power `S` | `V I = √(P² + Q²)` | VA | what the wires and the source must carry |
 | **complex power** | `S = V·I* = P + jQ` | VA | all of the above in one number |
-| power factor | `cos φ = P/|S|` | – | fraction of `|S|` that is useful |
+| power factor | `cos φ = P/\|S\|` | – | fraction of `\|S\|` that is useful |
 
 Also `S = |I|²·Z = |V|²/Z*`. **Sign convention:** an inductive load (current lags, "lagging pf") has `Q > 0`; a capacitive load (current leads, "leading pf") has `Q < 0`. Inductors *absorb* reactive power, capacitors *supply* it. A pure reactance has `P = 0`.
 
@@ -143,8 +143,8 @@ Source `V_th` (rms) with `Z_th = R_th + jX_th`, load `Z_L = R_L + jX_L`. The loa
 |---|---|---|
 | `R_L` and `X_L` | `Z_L = Z_th*` (complex conjugate) | `V_th²/(4R_th)` |
 | `X_L` only (`R_L` fixed) | `X_L = −X_th` | `V_th² R_L/(R_th + R_L)²` |
-| `R_L` only (`X_L` fixed) | `R_L = √(R_th² + (X_th + X_L)²)`; with `X_L = 0` this is `|Z_th|` | less than the conjugate value |
-| `|Z_L|` only (angle fixed) | `|Z_L| = |Z_th|` | less than the conjugate value |
+| `R_L` only (`X_L` fixed) | `R_L = √(R_th² + (X_th + X_L)²)`; with `X_L = 0` this is `\|Z_th\|` | less than the conjugate value |
+| `\|Z_L\|` only (angle fixed) | `\|Z_L\| = \|Z_th\|` | less than the conjugate value |
 
 Numbers: `Z_th = 3 + j4 Ω`, `V_th = 10 V`. The conjugate match `Z_L = 3 − j4` gives `100/(4 × 3) =` **8.33 W**. A purely resistive load at the best value `R_L = |Z_th| = 5 Ω` gives only **6.25 W**, and `R_L = 3 Ω` (the "DC rule", wrong here) gives 5.77 W.
 

@@ -117,7 +117,7 @@ The CCVS is `3i`, where `i` is the current in the 2 Ω. Find V_X.
 | Case | What it means |
 |---|---|
 | `V_th = 0` | no independent source inside; the equivalent is just a resistance (it may be negative) |
-| `R_th < 0` | an *active* one-port (a dependent source feeds energy to the terminals). Maximum-power transfer no longer makes sense, and a load `R_L = |R_th|` makes the circuit equations inconsistent |
+| `R_th < 0` | an *active* one-port (a dependent source feeds energy to the terminals). Maximum-power transfer no longer makes sense, and a load `R_L = \|R_th\|` makes the circuit equations inconsistent |
 | `R_th = 0` | the port behaves as an **ideal voltage source**: Thevenin exists, **Norton does not** |
 | `R_th = ∞` | the port behaves as an **ideal current source**: Norton exists, **Thevenin does not** |
 
@@ -214,9 +214,9 @@ Two things to take from the table: the peak is **flat** (a factor of 2 mismatch 
 
 | What you can adjust | Condition for maximum power | `P_max` (rms values) |
 |---|---|---|
-| `R_L` and `X_L` both | `Z_L = Z_th*` (complex conjugate) | `|V_th|² / (4 R_th)` |
-| only `R_L` (`X_L` fixed) | `R_L = √( R_th² + (X_th + X_L)² )`; for `X_L = 0` this is `R_L = |Z_th|` | less than the conjugate value |
-| only the magnitude `|Z_L|` (angle fixed) | `|Z_L| = |Z_th|` | less than the conjugate value |
+| `R_L` and `X_L` both | `Z_L = Z_th*` (complex conjugate) | `\|V_th\|² / (4 R_th)` |
+| only `R_L` (`X_L` fixed) | `R_L = √( R_th² + (X_th + X_L)² )`; for `X_L = 0` this is `R_L = \|Z_th\|` | less than the conjugate value |
+| only the magnitude `\|Z_L\|` (angle fixed) | `\|Z_L\| = \|Z_th\|` | less than the conjugate value |
 
 ---
 

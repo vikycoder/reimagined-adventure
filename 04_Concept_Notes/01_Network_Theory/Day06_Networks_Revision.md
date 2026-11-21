@@ -309,7 +309,7 @@ LINEAR  ≠  POWER       superposition holds for v and i, never for p.
 | two storage elements, "overshoot", "damping" | `α`, `ω₀`, `ζ`; **series vs parallel** formula | 3 |
 | impulse, ideal switch between capacitors | conservation of charge or flux (`ΔV = q/C`, `ΔI = Φ/L`) | 3 |
 | "steady state", "phasor" | impedances at one frequency; different frequencies separately | 4 |
-| "power factor", "kVA", "capacitor to correct" | `S = P + jQ`; `C = P(tan φ₁ − tan φ₂)/(ωV²)`; add `P` and `Q`, never `|S|` | 4 |
+| "power factor", "kVA", "capacitor to correct" | `S = P + jQ`; `C = P(tan φ₁ − tan φ₂)/(ωV²)`; add `P` and `Q`, never `\|S\|` | 4 |
 | "resonance", "Q", "bandwidth" | `ω₀`, `Q`, `BW`; check series or parallel and the source type | 4 |
 | "two-port", Z, Y, h, ABCD | choose the set; open or short the other port; cascade = multiply | 5 |
 | source at port 1 and load at port 2 | Thevenin at port 2: `Z_out`, `V_th` | 5 |

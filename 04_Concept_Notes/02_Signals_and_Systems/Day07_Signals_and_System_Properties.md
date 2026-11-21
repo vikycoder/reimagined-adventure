@@ -105,7 +105,7 @@ periodic:  P = (1/T₀) ∫_{T₀} |x(t)|² dt
 
 | Class | Condition | Examples |
 |---|---|---|
-| **energy signal** | `0 < E < ∞` (then `P = 0`) | `e^{−at}u(t)` with `a > 0`: `E = 1/(2a)`; a pulse: `E =` amplitude² × width; `sinc(t)`: `E = 1`; DT `aⁿu[n]`, `|a| < 1`: `E = 1/(1 − a²)` |
+| **energy signal** | `0 < E < ∞` (then `P = 0`) | `e^{−at}u(t)` with `a > 0`: `E = 1/(2a)`; a pulse: `E =` amplitude² × width; `sinc(t)`: `E = 1`; DT `aⁿu[n]`, `\|a\| < 1`: `E = 1/(1 − a²)` |
 | **power signal** | `0 < P < ∞` (then `E = ∞`) | `u(t)`: `P = ½`; `A cos(ωt)`: `P = A²/2`; every periodic signal; DT `u[n]`: `P = ½` |
 | **neither** | `E = ∞` and `P = ∞` (or undefined) | the ramp `t·u(t)`, `e^{t}u(t)` |
 
@@ -161,7 +161,7 @@ A signal is **causal** if `x(t) = 0` for `t < 0`, **anti-causal** if `x(t) = 0` 
 |---|---|
 | `x(t − t₀)` | **delay** by `t₀` (graph moves **right** for `t₀ > 0`) |
 | `x(−t)` | reversal (mirror about `t = 0`) |
-| `x(bt)`, `|b| > 1` | compression by `|b|` (the signal is `|b|` times faster); `|b| < 1`: stretch |
+| `x(bt)`, `\|b\| > 1` | compression by `\|b\|` (the signal is `\|b\|` times faster); `\|b\| < 1`: stretch |
 | `x(bt)`, `b < 0` | scaling **and** reversal |
 
 **The combination `x(at + b)`** is where marks are lost. Write it as `x(a(t + b/a))`: **scale first** (`t → at`), **then shift by `b/a`** (to the **left** by `b/a`). The foolproof check is to match the **edges**: set `at + b` equal to each edge of the original signal and solve for `t`.
@@ -294,7 +294,7 @@ Papers and keys: `02_Previous_Year_Papers/<year>/`. **Try each question from the
 | # | Question | Official answer | Concept it tests |
 |---|---|---|---|
 | 1 | 2019 Q21 (NAT) | 11.99 to 12.01 s | Fundamental period of a sum of sinusoids: the LCM rule |
-| 2 | 2020 Q5 (MCQ) | C | Impulse response of a **non-linear** system `y[n] = max_{k≤n}|x[k]|` |
+| 2 | 2020 Q5 (MCQ) | C | Impulse response of a **non-linear** system `y[n] = max_{k≤n}\|x[k]\|` |
 | 3 | 2022 Q46 (MSQ) | C, D | Which systems are definitely **not LTI**: new frequencies |
 | 4 | 2023 Q26 (MCQ) | B | `y(t) = x(eᵗ)`: causality and time invariance |
 | 5 | 2026 Q43 (MCQ) | C | Energy ratio of `x(t)` and `3x(−3t + 5)` |
