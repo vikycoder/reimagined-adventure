@@ -63,25 +63,32 @@ class Figs:
         plt.close(fig)
 
     def hstack(self, names, out, captions=None, pad=24, line_h=26):
-        """Stitch panels side by side; captions may contain newlines; writes <out>.png."""
+        """Stitch panels side by side; captions may contain newlines; each cell is at least as wide as its caption."""
         from PIL import Image, ImageDraw, ImageFont
         import matplotlib.font_manager as fm
         tmp = os.path.join(self.out, '_panels')
         ims = [Image.open(os.path.join(tmp, n + '.png')).convert('RGB') for n in names]
+        font = ImageFont.truetype(fm.findfont('DejaVu Sans'), 20)
+        probe = ImageDraw.Draw(Image.new('RGB', (10, 10)))
+        cells = []
+        for k, im in enumerate(ims):
+            cw = im.width
+            if captions:
+                cw = max(cw, int(max(probe.textlength(line, font=font) for line in captions[k].split('\n'))) + 16)
+            cells.append(cw)
         H = max(i.height for i in ims)
         n_lines = max((c.count('\n') + 1 for c in captions), default=0) if captions else 0
-        W = sum(i.width for i in ims) + pad * (len(ims) + 1)
+        W = sum(cells) + pad * (len(ims) + 1)
         canvas = Image.new('RGB', (W, H + n_lines * line_h + 2 * pad), 'white')
-        font = ImageFont.truetype(fm.findfont('DejaVu Sans'), 20)
         draw = ImageDraw.Draw(canvas)
         x = pad
         for k, im in enumerate(ims):
-            canvas.paste(im, (x, pad + (H - im.height) // 2))
+            canvas.paste(im, (x + (cells[k] - im.width) // 2, pad + (H - im.height) // 2))
             if captions:
                 for j, line in enumerate(captions[k].split('\n')):
                     tw = draw.textlength(line, font=font)
-                    draw.text((x + (im.width - tw) / 2, pad + H + 8 + j * line_h), line, fill='black', font=font)
-            x += im.width + pad
+                    draw.text((x + (cells[k] - tw) / 2, pad + H + 8 + j * line_h), line, fill='black', font=font)
+            x += cells[k] + pad
         canvas.save(os.path.join(self.out, out + '.png'))
 
     def cleanup(self):

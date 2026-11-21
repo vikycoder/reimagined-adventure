@@ -18,7 +18,7 @@ def norm(x):
     m = re.match(r'[A-D](?:\s*,\s*[A-D])*\b', x)
     if m:
         return re.sub(r'\s+', '', m.group(0))
-    m = re.match(r'-?[\d.]+(?:/[\d.]+)?', x)
+    m = re.match(r'-?\d+(?:\.\d+)?(?:/\d+(?:\.\d+)?)?', x)
     return m.group(0) if m else x
 
 
@@ -64,7 +64,7 @@ def check(path):
             problems.append(f'Q{q}: MCQ answer shape "{a}"')
         if t == 'MSQ' and not re.fullmatch(r'[A-D](,[A-D])*', a):
             problems.append(f'Q{q}: MSQ answer shape "{a}"')
-        if t == 'NAT' and not re.match(r'-?[\d.]+', a):
+        if t == 'NAT' and not re.match(r'-?\d+(?:\.\d+)?', a):
             problems.append(f'Q{q}: NAT answer shape "{a}"')
 
     if s.count('<details>') != s.count('</details>'):
